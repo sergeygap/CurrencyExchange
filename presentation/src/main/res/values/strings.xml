@@ -5,4 +5,6 @@
     <string name="za_hardcode">за %s единиц</string>
     <string name="state_of_currency">state of currency</string>
     <string name="percent">%</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
