@@ -1,4 +1,4 @@
-package com.gap.currencyexchange
+package com.gap.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
