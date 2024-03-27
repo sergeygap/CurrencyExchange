@@ -7,4 +7,5 @@
     <string name="percent">%</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date_last_update">Дата и время последнего обновления:</string>
 </resources>
