@@ -1,21 +1,16 @@
-package com.gap.presentation.viewModels
+package com.gap.data
 
-import android.util.Log
 import com.gap.data.mappers.Mapper
 import com.gap.data.network.RetrofitInstance
 import com.gap.domain.CurrencyRepository
 import com.gap.domain.entities.Currency
-import com.gap.presentation.R
 
 class CurrencyRepositoryImpl : CurrencyRepository {
     private val currencyApi = RetrofitInstance.api
     private val mapper = Mapper
     override suspend fun getCurrencyList(): Currency {
         return try {
-            Log.d(TAG, "working")
             val response = currencyApi.getListCurrency()
-            Log.d(TAG, "Response body: ${response.body()}")
-
             if (!response.isSuccessful) {
                 throw Exception("Failed to fetch currency data: ${response.code()}")
             } else {
@@ -32,7 +27,6 @@ class CurrencyRepositoryImpl : CurrencyRepository {
     }
 
     companion object {
-        private const val TAG = "CurrencyRepositoryImpl"
         private const val ERROR_STRING = ""
     }
 

@@ -6,22 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.gap.presentation.adapters.CurrencyAdapter
 import com.gap.presentation.databinding.FragmentCurrencyBinding
 import com.gap.presentation.viewModels.CurrencyViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
+import com.gap.presentation.viewModels.ProvideViewModels
 
 
 class CurrencyFragment : Fragment() {
 
-    private val viewModel by lazy {
-        ViewModelProvider(this)[CurrencyViewModel::class.java]
-    }
+    private lateinit var viewModel: CurrencyViewModel
     private val binding: FragmentCurrencyBinding
         get() = _binding ?: throw RuntimeException("CurrencyFragment == null")
     private var _binding: FragmentCurrencyBinding? = null
@@ -37,9 +30,9 @@ class CurrencyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = (requireContext().applicationContext as ProvideViewModels).currencyViewModel()
         workWithViewModel()
         workWithUi()
-
     }
 
     private fun workWithUi() {
@@ -77,7 +70,6 @@ class CurrencyFragment : Fragment() {
         viewModel.getCurrencyList()
         viewModel.startAutoRefresh()
     }
-
 
 
     override fun onDestroyView() {

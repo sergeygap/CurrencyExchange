@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gap.domain.CurrencyRepository
 import com.gap.domain.entities.Valute
 import com.gap.domain.useCases.GetCurrencyListUseCase
 import kotlinx.coroutines.CoroutineScope
@@ -13,9 +14,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class CurrencyViewModel : ViewModel() {
-    private val repositoryImpl = CurrencyRepositoryImpl()
-    private val getCurrencyList = GetCurrencyListUseCase(repositoryImpl)
+class CurrencyViewModel(
+    repository: CurrencyRepository
+) : ViewModel() {
+    private val getCurrencyList = GetCurrencyListUseCase(repository)
     private val customCoroutineScope = CoroutineScope(Dispatchers.Main)
     private val _timeLD = MutableLiveData<String>()
     val timeLD: LiveData<String>
