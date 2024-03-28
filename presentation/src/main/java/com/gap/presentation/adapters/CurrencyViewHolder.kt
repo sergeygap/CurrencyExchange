@@ -17,9 +17,9 @@ class CurrencyViewHolder(private val binding: ItemCurrencyBinding, private val c
     fun bind(currency: Valute) {
         binding.tvNameCurrency.text = currency.name
         binding.tvNameCurrencyCode.text = currency.charCode
-        binding.tvCurrencyValue.text = currency.value.toString()
+        binding.tvCurrencyValue.text = context.getString(R.string.currency_value, currency.value.toString())
         binding.tvZaHardcode.text = spannableString(currency.nominal)
-        binding.tvStateCurrency.text = currency.difference.toString()
+        binding.tvStateCurrency.text = context.getString(R.string.currency_difference, currency.difference.toString())
         binding.ivStateCurrency.setImageResource(differenceState(currency.difference))
         binding.ivMain.setImageResource(chooseFlag(currency.charCode))
     }
@@ -39,9 +39,9 @@ class CurrencyViewHolder(private val binding: ItemCurrencyBinding, private val c
 
     private fun differenceState(state: Double): Int {
         return if (state >= 0) {
-            R.drawable.up_18
+            R.drawable.up_24
         } else {
-            R.drawable.down_18
+            R.drawable.down_24
         }
     }
 

@@ -10,6 +10,7 @@
     <TextView
         android:id="@+id/tv_last_update_mock"
         android:layout_width="0dp"
+        android:background="@color/grey_background"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="4dp"
@@ -33,6 +34,7 @@
         android:textColor="@color/main_black"
         android:textSize="16sp"
         android:textStyle="italic"
+        android:background="@color/grey_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_last_update_mock"

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="4dp"
     app:cardCornerRadius="6dp"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="@color/grey_background"
     android:elevation="0dp"
     app:cardUseCompatPadding="true">
 
@@ -20,11 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="18dp"
-            android:padding="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
             android:contentDescription="@string/flag_of_currency"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_name_currency_code"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/jpy" />
@@ -32,14 +31,17 @@
         <TextView
             android:id="@+id/tv_name_currency"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="2dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="-8dp"
+            android:layout_marginBottom="-8dp"
             android:fontFamily="@font/montserrat"
+            android:gravity="start|center_vertical"
             android:textColor="@color/main_black"
             android:textSize="16sp"
+            android:layout_marginEnd="4dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/tv_currency_value"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMain"
+            app:layout_constraintEnd_toStartOf="@+id/iv_state_currency"
             app:layout_constraintStart_toEndOf="@+id/ivMain"
             app:layout_constraintTop_toTopOf="@+id/ivMain"
             tools:text="Фунт стерлингов Соединенного королевства " />
@@ -49,87 +51,61 @@
             android:id="@+id/tv_name_currency_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:textColor="@color/grey"
+            android:layout_marginBottom="4dp"
             android:fontFamily="@font/montserrat"
-            app:layout_constraintBottom_toBottomOf="@+id/ivMain"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ivMain"
             app:layout_constraintStart_toEndOf="@+id/ivMain"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name_currency"
+            app:layout_constraintStart_toStartOf="@+id/ivMain"
             tools:text="GBP" />
 
         <TextView
             android:id="@+id/tv_currency_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:textColor="@color/main_black"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat"
-            app:layout_constraintEnd_toStartOf="@+id/tv_name_currency_ruble"
-            app:layout_constraintTop_toTopOf="@+id/ivMain"
-            tools:text="116.9251" />
-
-        <TextView
-            android:id="@+id/tv_name_currency_ruble"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:text="@string/ruble"
-            android:textColor="@color/main_black"
-            android:textStyle="bold"
-            android:fontFamily="@font/montserrat"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_currency_value" />
+            app:layout_constraintTop_toTopOf="@+id/ivMain"
+            tools:text="116.92₽" />
 
         <TextView
             android:id="@+id/tv_za_hardcode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
             android:fontFamily="@font/montserrat"
             android:gravity="start"
             android:text="@string/za_hardcode"
             android:textColor="@color/grey"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_name_currency"
-            app:layout_constraintTop_toBottomOf="@+id/tv_currency_value" />
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name_currency_code"
+            app:layout_constraintStart_toEndOf="@+id/ivMain"
+            app:layout_constraintTop_toTopOf="@+id/tv_name_currency_code" />
 
         <ImageView
             android:id="@+id/iv_state_currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
             android:contentDescription="@string/state_of_currency"
-            android:src="@drawable/down_18"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_za_hardcode" />
+            android:src="@drawable/down_24"
+            app:layout_constraintEnd_toStartOf="@+id/tv_state_currency"
+            app:layout_constraintTop_toBottomOf="@+id/tv_currency_value" />
 
         <TextView
             android:id="@+id/tv_state_currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:textColor="@color/grey"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_state_currency"
-            app:layout_constraintStart_toEndOf="@+id/iv_state_currency"
-            app:layout_constraintTop_toTopOf="@+id/iv_state_currency"
-            tools:text="0.74" />
-
-        <TextView
-            android:id="@+id/tv_percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:fontFamily="@font/montserrat"
-            android:text="@string/ruble"
             android:textColor="@color/grey"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_state_currency"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/tv_state_currency"
-            app:layout_constraintTop_toTopOf="@+id/iv_state_currency" />
+            app:layout_constraintTop_toTopOf="@+id/iv_state_currency"
+            tools:text="-0.74₽" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
