@@ -16,17 +16,18 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="18dp"
+            android:padding="4dp"
             android:contentDescription="@string/flag_of_currency"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/united_kingdom" />
+            app:srcCompat="@drawable/jpy" />
 
         <TextView
             android:id="@+id/tv_name_currency"
@@ -39,8 +40,8 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/tv_currency_value"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/ivMain"
+            app:layout_constraintTop_toTopOf="@+id/ivMain"
             tools:text="Фунт стерлингов Соединенного королевства " />
 
 
@@ -51,8 +52,8 @@
             android:layout_marginStart="4dp"
             android:textColor="@color/grey"
             android:fontFamily="@font/montserrat"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMain"
+            app:layout_constraintStart_toEndOf="@+id/ivMain"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_currency"
             tools:text="GBP" />
 
@@ -64,7 +65,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/montserrat"
             app:layout_constraintEnd_toStartOf="@+id/tv_name_currency_ruble"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/ivMain"
             tools:text="116.9251" />
 
         <TextView
@@ -121,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:fontFamily="@font/montserrat"
-            android:text="@string/percent"
+            android:text="@string/ruble"
             android:textColor="@color/grey"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_state_currency"

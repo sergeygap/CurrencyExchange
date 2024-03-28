@@ -2,7 +2,7 @@
     <string name="app_name">CurrencyExchange</string>
     <string name="flag_of_currency">flag of currency</string>
     <string name="ruble">₽</string>
-    <string name="za_hardcode">за %s единиц</string>
+    <string name="za_hardcode">за %d единиц</string>
     <string name="state_of_currency">state of currency</string>
     <string name="percent">%</string>
     <!-- TODO: Remove or change this placeholder text -->

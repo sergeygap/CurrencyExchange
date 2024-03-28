@@ -6,7 +6,8 @@ data class Valute(
     val nominal: Int,
     val name: String,
     val value: Double,
-    val previous: Double
+    val previous: Double,
+    val difference: Double
 )
 
 

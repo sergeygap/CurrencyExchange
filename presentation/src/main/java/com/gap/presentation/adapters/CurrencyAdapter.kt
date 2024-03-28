@@ -11,7 +11,7 @@ class CurrencyAdapter : RecyclerView.Adapter<CurrencyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyViewHolder {
         val binding =
             ItemCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CurrencyViewHolder(binding)
+        return CurrencyViewHolder(binding, parent.context)
     }
 
     override fun getItemCount() = differ.currentList.size
