@@ -7,4 +7,6 @@
     <string name="currency_value">%s₽</string>
     <string name="currency_time">Курс валют на %s</string>
     <string name="main">Главная</string>
+    <string name="currency_exchange">обмен валюты</string>
+    <string name="profile">профиль</string>
 </resources>

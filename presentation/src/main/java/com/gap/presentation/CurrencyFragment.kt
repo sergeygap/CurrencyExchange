@@ -44,6 +44,14 @@ class CurrencyFragment : Fragment() {
         viewModel.valuteListLD.observe(viewLifecycleOwner) {
             adapter.differ.submitList(it)
         }
+        viewModel.progressLD.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.visibility = View.INVISIBLE
+            }
+        }
+
     }
 
     private fun workWithViewModel() {
