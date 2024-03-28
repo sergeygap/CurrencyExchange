@@ -5,6 +5,7 @@ import com.gap.data.mappers.Mapper
 import com.gap.data.network.RetrofitInstance
 import com.gap.domain.CurrencyRepository
 import com.gap.domain.entities.Currency
+import com.gap.presentation.R
 
 class CurrencyRepositoryImpl : CurrencyRepository {
     private val currencyApi = RetrofitInstance.api
@@ -26,12 +27,13 @@ class CurrencyRepositoryImpl : CurrencyRepository {
                 }
             }
         } catch (e: Exception) {
-            throw Exception("Exception during network request: ${e.message}", e)
+            Currency(ERROR_STRING, listOf())
         }
     }
 
     companion object {
         private const val TAG = "CurrencyRepositoryImpl"
+        private const val ERROR_STRING = ""
     }
 
 }

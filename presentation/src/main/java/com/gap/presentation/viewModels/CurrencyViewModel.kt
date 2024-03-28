@@ -26,10 +26,15 @@ class CurrencyViewModel : ViewModel() {
     val progressLD: LiveData<Boolean>
         get() = _progressLD
 
+    private val _errorLD = MutableLiveData<Boolean>()
+    val errorLD: LiveData<Boolean>
+        get() = _errorLD
+
     fun getCurrencyList() {
         viewModelScope.launch {
             _progressLD.value = true
             val currency = getCurrencyList.invoke()
+            _errorLD.value = currency.timestamp.isEmpty()
             _timeLD.value = currency.timestamp
             _valuteListLD.value = currency.valute
             _progressLD.value = false
