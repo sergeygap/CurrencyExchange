@@ -7,4 +7,5 @@ import retrofit2.http.GET
 interface CurrencyApi {
     @GET("daily_json.js")
     suspend fun getListCurrency(): Response<CurrencyDto>
+
 }
