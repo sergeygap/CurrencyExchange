@@ -10,6 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.gap.presentation.adapters.CurrencyAdapter
 import com.gap.presentation.databinding.FragmentCurrencyBinding
 import com.gap.presentation.viewModels.CurrencyViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 
 class CurrencyFragment : Fragment() {
@@ -34,6 +39,7 @@ class CurrencyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         workWithViewModel()
         workWithUi()
+
     }
 
     private fun workWithUi() {
@@ -69,7 +75,10 @@ class CurrencyFragment : Fragment() {
 
     private fun workWithViewModel() {
         viewModel.getCurrencyList()
+        viewModel.startAutoRefresh()
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

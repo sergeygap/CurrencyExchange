@@ -1,19 +1,22 @@
 package com.gap.presentation.viewModels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gap.domain.entities.Valute
 import com.gap.domain.useCases.GetCurrencyListUseCase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 class CurrencyViewModel : ViewModel() {
-
     private val repositoryImpl = CurrencyRepositoryImpl()
     private val getCurrencyList = GetCurrencyListUseCase(repositoryImpl)
-
+    private val customCoroutineScope = CoroutineScope(Dispatchers.Main)
     private val _timeLD = MutableLiveData<String>()
     val timeLD: LiveData<String>
         get() = _timeLD
@@ -41,8 +44,17 @@ class CurrencyViewModel : ViewModel() {
         }
     }
 
-    companion object {
-        private const val TAG = "CurrencyViewModel"
+    fun startAutoRefresh() {
+        customCoroutineScope.launch {
+            while (isActive) {
+                delay(30000)
+                getCurrencyList()
+            }
+        }
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        customCoroutineScope.cancel()
+    }
 }
