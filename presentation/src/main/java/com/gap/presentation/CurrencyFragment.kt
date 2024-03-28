@@ -38,6 +38,7 @@ class CurrencyFragment : Fragment() {
     private fun workWithUi() {
         adapter = CurrencyAdapter()
         binding.rvCurrency.adapter = adapter
+        workWithSwipeToRefresh()
         viewModel.timeLD.observe(viewLifecycleOwner) {
             binding.tvLastUpdate.text = getString(R.string.currency_time, it)
         }
@@ -51,7 +52,13 @@ class CurrencyFragment : Fragment() {
                 binding.progressBar.visibility = View.INVISIBLE
             }
         }
+    }
 
+    private fun workWithSwipeToRefresh() {
+        binding.swipeToRefreshLayout.setOnRefreshListener {
+            viewModel.getCurrencyList()
+            binding.swipeToRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun workWithViewModel() {
