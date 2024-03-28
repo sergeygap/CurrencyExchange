@@ -39,7 +39,7 @@ class CurrencyFragment : Fragment() {
         adapter = CurrencyAdapter()
         binding.rvCurrency.adapter = adapter
         viewModel.timeLD.observe(viewLifecycleOwner) {
-            binding.tvLastUpdate.text = it
+            binding.tvLastUpdate.text = getString(R.string.currency_time, it)
         }
         viewModel.valuteListLD.observe(viewLifecycleOwner) {
             adapter.differ.submitList(it)

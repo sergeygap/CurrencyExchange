@@ -3,9 +3,8 @@
     <string name="flag_of_currency">flag of currency</string>
     <string name="za_hardcode">за %d единиц</string>
     <string name="state_of_currency">state of currency</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="date_last_update">Дата и время последнего обновления:</string>
     <string name="currency_difference">%s₽</string>
     <string name="currency_value">%s₽</string>
+    <string name="currency_time">Курс валют на %s</string>
+    <string name="main">Главная</string>
 </resources>
