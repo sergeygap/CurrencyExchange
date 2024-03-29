@@ -54,7 +54,7 @@ class CurrencyFragment : Fragment() {
         }
         viewModel.errorLD.observe(viewLifecycleOwner) {
             if (it) {
-                Toast.makeText(requireContext(), R.string.error, Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), R.string.error, Toast.LENGTH_SHORT).show()
             }
         }
     }
